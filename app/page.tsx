@@ -33,6 +33,10 @@ const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=" +
   encodeURIComponent("Barber at Pearls, Pearls Mall, Umhlanga");
 
+// Opens Google's "write a review" dialog for the shop's Google Maps listing.
+const GOOGLE_PLACE_ID = "ChIJs_IUYgAP9x4RW7K8SwCo0ro";
+const REVIEW_URL = `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`;
+
 const waLink = (text: string) =>
   `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
@@ -155,6 +159,8 @@ h1,h2,h3,p{margin:0}
 .btn-red{background:var(--red);color:#fff;box-shadow:0 0 22px rgba(224,25,43,.45)}
 .btn-blue{background:var(--blue);color:#fff;box-shadow:0 12px 30px rgba(27,63,196,.4)}
 .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--ink-10);box-shadow:0 2px 8px rgba(10,26,74,.06)}
+.btn-review{background:#fff;color:var(--ink);border:1px solid rgba(245,180,0,.45);box-shadow:0 0 0 4px rgba(245,180,0,.1),0 6px 18px rgba(10,26,74,.08)}
+.btn-review svg{color:#F5B400;fill:#F5B400}
 .btn-wa{background:var(--wa);color:#06381B;width:100%;box-shadow:0 0 30px rgba(37,211,102,.45)}
 .btn-wa[aria-disabled="true"]{background:rgba(255,255,255,.1);color:rgba(255,255,255,.4);box-shadow:none;cursor:not-allowed;transform:none}
 
@@ -296,6 +302,12 @@ a.tile:hover{background:rgba(255,255,255,.16)}
 .tile-title{margin-top:12px;font-weight:800}
 .tile-text{color:rgba(255,255,255,.72)}
 .tile-link{margin-top:8px;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.tile-review{display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;color:var(--ink)}
+a.tile-review:hover{background:#fff;transform:translateY(-2px)}
+.tile-review .tile-text{color:var(--ink-70)}
+.tile-review .stars{display:flex;gap:2px;color:#F5B400;flex-shrink:0}
+.tile-review .stars svg{fill:#F5B400}
+@media(min-width:640px){.tile-review{grid-column:1 / -1}}
 .tile-wa{background:var(--wa);color:#06381B}
 a.tile-wa:hover{background:var(--wa);transform:translateY(-2px)}
 .tile-wa .tile-text{color:rgba(6,56,27,.8)}
@@ -462,6 +474,9 @@ function Hero() {
             </a>
             <a href={`tel:${PHONE_TEL}`} className="btn btn-ghost">
               <Phone size={18} /> {PHONE_DISPLAY}
+            </a>
+            <a href={REVIEW_URL} target="_blank" rel="noopener noreferrer" className="btn btn-review">
+              <Star size={18} /> Leave a Google review
             </a>
           </motion.div>
         </motion.div>
@@ -747,6 +762,17 @@ function Visit() {
                 <MessageCircle size={22} />
                 <p className="tile-title">WhatsApp</p>
                 <p className="tile-text">Book in one tap</p>
+              </a>
+              <a href={REVIEW_URL} target="_blank" rel="noopener noreferrer" className="tile tile-review">
+                <div>
+                  <p className="tile-title" style={{ marginTop: 0 }}>Enjoyed your cut?</p>
+                  <p className="tile-text">Leave us a review on Google</p>
+                </div>
+                <span className="stars" aria-hidden>
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <Star key={i} size={20} />
+                  ))}
+                </span>
               </a>
             </div>
           </div>
