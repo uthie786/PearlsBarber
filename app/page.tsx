@@ -24,9 +24,9 @@ import {
 /* Business data                                                        */
 /* ------------------------------------------------------------------ */
 
-const WA_NUMBER = "27718205432";
-const PHONE_DISPLAY = "071 820 5432";
-const PHONE_TEL = "+27718205432";
+const WA_NUMBER = "27767405910";
+const PHONE_DISPLAY = "076 740 5910";
+const PHONE_TEL = "+27767405910";
 const ADDRESS_LINE_1 = "Shop B5, Level 2";
 const ADDRESS_LINE_2 = "Pearls Mall, Umhlanga";
 const MAPS_URL =
@@ -44,10 +44,10 @@ type Service = { id: string; name: string; tagline: string; includes: string[] }
 
 const SERVICES: Service[] = [
   {
-    id: "fade",
-    name: "Fade",
-    tagline: "Skin, low, mid or high, blended clean into your length.",
-    includes: ["Shape consultation", "Clipper and scissor blend", "Line-up and neck finish"],
+    id: "haircut",
+    name: "Classic Haircut",
+    tagline: "A clean, sharp cut tailored to your shape and style.",
+    includes: ["Shape consultation", "Clipper and scissor work", "Line-up and neck finish"],
   },
   {
     id: "beard",
@@ -57,9 +57,9 @@ const SERVICES: Service[] = [
   },
   {
     id: "shave",
-    name: "Hot Towel Shave",
-    tagline: "The classic ritual: hot towel, close razor, cool finish.",
-    includes: ["Hot towel prep", "Close razor shave", "Cool towel finish"],
+    name: "Shave",
+    tagline: "A close, smooth shave with a clean, fresh finish.",
+    includes: ["Skin prep", "Close razor shave", "Fresh finish"],
   },
   {
     id: "vip",
@@ -512,7 +512,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const words = ["Fades", "Beard trims", "Hot towel shaves", "VIP styling", "Pearls Mall, Umhlanga"];
+  const words = ["Classic haircuts", "Beard trims", "Shaves", "VIP styling", "Pearls Mall, Umhlanga"];
   const row = [...words, ...words];
   return (
     <div className="marquee" aria-hidden>
@@ -533,7 +533,7 @@ function Marquee() {
 }
 
 function ServiceSelector() {
-  const [selected, setSelected] = useState<string[]>(["fade"]);
+  const [selected, setSelected] = useState<string[]>(["haircut"]);
   const [day, setDay] = useState<(typeof DAYS)[number]>("Today");
   const [time, setTime] = useState<(typeof TIMES)[number]>("Afternoon");
   const [name, setName] = useState("");
@@ -689,7 +689,7 @@ function Experience() {
   const points = [
     { icon: Scissors, title: "Cut with intent", body: "Every cut starts with a quick chat about shape, length and how you wear it day to day." },
     { icon: Sparkles, title: "A proper finish", body: "Clean necklines, sharp edges and a styled finish, so you leave looking ready for anything." },
-    { icon: Star, title: "Treat yourself", body: "Add a hot towel shave or go VIP when it's a big day, or when you simply deserve it." },
+    { icon: Star, title: "Treat yourself", body: "Add a shave or go VIP when it's a big day, or when you simply deserve it." },
   ];
 
   return (
@@ -746,7 +746,8 @@ function Visit() {
               <div className="tile">
                 <Clock className="tile-icon" size={22} />
                 <p className="tile-title">Hours and availability</p>
-                <p className="tile-text">WhatsApp us for today&apos;s open slots.</p>
+                <p className="tile-text">Monday to Saturday: 9am to 6pm</p>
+                <p className="tile-text">Sunday: 9am to 4pm</p>
               </div>
               <a href={`tel:${PHONE_TEL}`} className="tile">
                 <Phone className="tile-icon" size={22} />
