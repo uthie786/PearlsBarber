@@ -4,13 +4,13 @@ import type { ReactNode } from "react";
 export const metadata: Metadata = {
   title: "Barber at Pearls | Premium Barbering Umhlanga",
   description:
-    "Fades, beard trims, hot towel shaves and VIP styling at Barber at Pearls, Shop B5, Level 2, Pearls Mall, Umhlanga. Book in one tap on WhatsApp: 071 820 5432.",
+    "Classic haircuts, beard trims, shaves and VIP styling at Barber at Pearls, Shop B5, Level 2, Pearls Mall, Umhlanga. Open daily. Book in one tap on WhatsApp: 076 740 5910.",
   keywords: [
     "barber Umhlanga",
     "Barber at Pearls",
     "Pearls Mall barber",
-    "fade Umhlanga",
-    "hot towel shave Durban",
+    "haircut Umhlanga",
+    "shave Umhlanga",
     "beard trim Umhlanga",
   ],
   openGraph: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Barber at Pearls | Premium Barbering Umhlanga",
-    description: "Fades, beards, hot towel shaves and VIP styling at Pearls Mall, Umhlanga.",
+    description: "Classic haircuts, beard trims, shaves and VIP styling at Pearls Mall, Umhlanga.",
   },
   robots: { index: true, follow: true },
 };
@@ -40,7 +40,16 @@ const localBusinessJsonLd = {
   "@context": "https://schema.org",
   "@type": "BarberShop",
   name: "Barber at Pearls",
-  telephone: "+27718205432",
+  telephone: "+27767405910",
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "09:00",
+      closes: "18:00",
+    },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "09:00", closes: "16:00" },
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "Shop B5, Level 2, Pearls Mall",
